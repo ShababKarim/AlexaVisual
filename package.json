@@ -1,0 +1,26 @@
+{
+	"name": "alexavisual",
+	"version": "1.0.0",
+	"description": "Creating data visualizations for alexa reviews",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js",
+		"server": "nodemon server.js"
+	},
+	"author": "Shabab Karim",
+	"license": "MIT",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"cors": "^2.8.5",
+		"csv-parser": "^2.3.1",
+		"express": "^4.17.1",
+		"lodash": "^4.17.15",
+		"mongoose": "^5.7.5",
+		"nodemon": "^1.19.3",
+		"sentiment": "^5.0.2"
+	},
+	"devDependencies": {
+		"morgan": "^1.9.1"
+	}
+}
