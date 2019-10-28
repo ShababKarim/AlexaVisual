@@ -1,31 +1,43 @@
 import React from 'react'
-import {
-	XYPlot,
-	XAxis,
-	YAxis,
-	VerticalGridLines,
-	HorizontalGridLines,
-	VerticalRectSeries
-} from 'react-vis'
+import { Scatter } from 'react-chartjs-2'
 
 const Histogram = props => {
-	return (
-		<XYPlot
-			xDomain={[-1.0, 8.0]}
-			yDomain={[0, 7]}
-			width={300}
-			height={300}
-		>
-			<VerticalGridLines />
-			<HorizontalGridLines />
-			<XAxis />
-			<YAxis />
-			<VerticalRectSeries
-				data={props.results['scoreCount']}
-				style={{ stroke: '#fff' }}
-			/>
-		</XYPlot>
-	)
+	const data = {
+		labels: ['Scatter'],
+		datasets: [
+			{
+				label: 'Score Count',
+				fill: true,
+				backgroundColor: 'rgba(75,192,192,0.4)',
+				pointBorderColor: 'rgba(75,192,192,1)',
+				pointBackgroundColor: '#fff',
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+				pointHoverBorderColor: 'rgba(220,220,220,1)',
+				pointHoverBorderWidth: 2,
+				pointRadius: 3,
+				pointHitRadius: 10,
+				data: props.results.scoreCount
+			},
+			{
+				label: 'Comparative Count',
+				fill: true,
+				backgroundColor: 'rgba(98,195,228,0.4)',
+				pointBorderColor: 'rgba(98,195,228,1)',
+				pointBackgroundColor: '#fff',
+				pointBorderWidth: 1,
+				pointHoverRadius: 5,
+				pointHoverBackgroundColor: 'rgba(98,195,228,1)',
+				pointHoverBorderColor: 'rgba(220,220,220,1)',
+				pointHoverBorderWidth: 2,
+				pointRadius: 3,
+				pointHitRadius: 10,
+				data: props.results.comparativeCount
+			}
+		]
+	}
+	return <Scatter data={data} />
 }
 
 export default Histogram
