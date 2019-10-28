@@ -1,7 +1,7 @@
 // data coming in shape of
 // { "scoreCount": { "3.00": 7, "0.00": 4 }, "comparativeCount": { "0.75": 2, "0.00": 4 } }
 // output
-// { "scoreCount": [{ "x": 3.00, "x0": 4.00, "y": 7, "y0": 0}...], "comparativeCount": [...] }
+// { "scoreCount": [{ "x": 3.00, "y": 7}...], "comparativeCount": [...] }
 
 function formatAsChartInput(obj) {
 	const formattedObj = {}
@@ -10,9 +10,7 @@ function formatAsChartInput(obj) {
 		for (const [k, v] of Object.entries(obj[key])) {
 			formattedValue.push({
 				x: parseFloat(k),
-				x0: parseFloat(k) + 1,
-				y: v,
-				y0: 0
+				y: v
 			})
 		}
 		formattedObj[key] = formattedValue
